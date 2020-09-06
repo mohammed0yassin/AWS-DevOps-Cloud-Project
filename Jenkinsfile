@@ -5,7 +5,8 @@ pipeline {
       steps {
         sh 'tidy -q -e ./*.html'  
       }
-
+    }
+    
     stage("Build Docker image") {
       steps {
         sh 'docker build -t webserver:1.0 .'  
