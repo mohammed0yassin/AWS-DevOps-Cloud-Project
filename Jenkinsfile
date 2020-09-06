@@ -18,6 +18,7 @@ pipeline {
           sh './upload_docker.sh'  
         }
       }
+    }
 
     stage('Deploy Container') {
       steps {
