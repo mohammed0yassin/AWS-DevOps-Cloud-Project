@@ -16,7 +16,10 @@ pipeline {
     stage("Push Dcoker image") {
       steps {
         withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
-          sh './upload_docker.sh'  
+          sh 'dockerpath=yassin226/webserver'  
+          sh 'docker login'  
+          sh 'docker tag webserver:1.0 $dockerpath'  
+          sh 'docker push $dockerpath'  
         }
       }
     }
