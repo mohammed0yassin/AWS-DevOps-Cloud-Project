@@ -25,7 +25,7 @@ pipeline {
 
     stage('Deploy Container') {
       steps {
-        withAWS(region:'us-east-2',credentials:'aws-devops-credentials') {
+        withAWS(region:'us-east-1',credentials:'aws-devops-credentials') {
           sh 'aws eks update-kubeconfig --name devops-capstone-cluster'
           sh 'kubectl config use-context arn:aws:eks:us-east-1:559944449460:cluster/devops-capstone-cluster'
           sh 'kubectl apply -f deployment/deployment.yml'
